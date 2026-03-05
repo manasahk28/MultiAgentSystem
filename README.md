@@ -1,7 +1,15 @@
 # Bias Evolution in Multi-Agent Debate
 
 ## Overview
-This project focuses on the dynamics of bias in multi-agent debates, exploring how biases evolve and impact decision-making within interactive systems.
+Studying Convergence Dynamics in Biased NLP Agents
+A research-oriented NLP project exploring how training bias influences the convergence behavior of multi-agent debate systems.
+This project builds a Proposer–Critic debate framework where two sentiment analysis agents trained with different bias levels iteratively debate over predictions until they reach convergence.
+Instead of simply predicting sentiment, the system analyzes:
+1. how bias affects disagreement
+2. how agents resolve conflicts
+3. how long debates take to stabilize
+
+The goal is to study stability, convergence, and accuracy in biased multi-agent reasoning systems.
 
 ## Motivation
 Understanding bias is crucial in multi-agent systems as they can affect outcomes in various applications including negotiations, collaborative filtering, and automated decision-making.
@@ -12,10 +20,31 @@ Understanding bias is crucial in multi-agent systems as they can affect outcomes
 3. To evaluate the effectiveness of these models in real-world scenarios.
 
 ## Dataset
-The dataset comprises annotated debate transcripts, agent interactions, and bias-related meta-data generated from simulations and real-world case studies.
+The project uses the **IMDb Large Movie Review Dataset**.
+
+Dataset details:
+
+* 50,000 movie reviews
+* Balanced sentiment dataset
+* Binary classification:
+  * Positive
+  * Negative
+
+Dataset split used in this project:
+
+| Split | Size |
+| ----- | ---- |
+| Train | 80%  |
+| Test  | 20%  |
+
+The test set remains **fixed across all experiments** to ensure fair comparisons.
 
 ## System Architecture
-The system consists of multiple agents, each capable of holding and expressing opinions based on a shared knowledge base, influenced by biases.
+The system consists of two agents:
+    1. Proposer Agent: The proposer provides the initial sentiment prediction.
+    2. Critic Agent: The critic evaluates the proposer’s prediction and provides a counter-argument.
+
+The agents debate iteratively until their predictions converge.
 
 ## Multi-Agent Debate Flow
 1. Agents initiate a debate with predefined biases.
@@ -23,8 +52,23 @@ The system consists of multiple agents, each capable of holding and expressing o
 3. Agents update their opinions based on the discussions.
 
 ## Bias Injection Framework
-A framework to introduce biases into agents' decision-making processes, mimicking realistic scenarios found in human debates.
+To simulate bias, training datasets are intentionally skewed.
 
+We define a bias parameter β:
+
+β ∈ {0.0, 0.1, 0.2, ..., 1.0}
+Bias Level	Dataset Distribution
+0.0	50% positive / 50% negative
+0.5	75% positive / 25% negative
+1.0	100% positive
+
+For each bias level:
+
+Proposer is trained with bias β
+
+Critic is trained with opposite bias
+
+This forces the agents to disagree systematically.
 ## Convergence Rule
 A convergence rule defines how agents settle on opinions based on their debate interactions, promoting consensus or highlighting disagreements.
 
@@ -88,7 +132,7 @@ Visualization modules will generate graphs and interactive outputs to analyze th
 Exploration of more complex bias scenarios and the adaptation of the framework for different applications.
 
 ## Authors
-- [Your Name](https://github.com/manasahk28)
+- Manasa(https://github.com/manasahk28)
 
 ## MIT License
 This project is licensed under the MIT License. See the LICENSE file for more details.
