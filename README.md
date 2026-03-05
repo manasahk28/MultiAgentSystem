@@ -124,15 +124,20 @@ Visualization modules will generate graphs and interactive outputs to analyze th
 3. Framework for future research in related fields.
 
 ## Applications
-- Negotiation systems
-- Recommendation engines
-- Conflict resolution frameworks
+ - The framework can be extended to:
+ - misinformation detection
+ - fact verification
+ - multi-agent reasoning systems
+ - AI safety research
+ - bias mitigation studies
 
 ## Future Work
-Exploration of more complex bias scenarios and the adaptation of the framework for different applications.
-
+Potential improvements include:
+ - more than two debating agents
+ - argument generation with large language models
+ - dynamic debate strategies
+ - adaptive confidence weighting
+ - multilingual datasets
+ - 
 ## Authors
 - Manasa(https://github.com/manasahk28)
-
-## MIT License
-This project is licensed under the MIT License. See the LICENSE file for more details.
